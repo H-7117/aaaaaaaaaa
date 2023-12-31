@@ -15,4 +15,9 @@ class company extends Model
     {
         return $this->hasMany(job::class);
     }
+
+    public function company_recruter() : HasMany
+    {
+        return $this->hasMany(recruiter::class);
+    }
 }
