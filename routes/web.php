@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\companyController;
+use App\Http\Controllers\JobApplicationController;
+use App\Http\Controllers\JobCategoryController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\jobPositionController;
+use App\Http\Controllers\JobStageController;
+use App\Models\jobStage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +25,8 @@ Route::get('/', function () {
 });
 
 Route::resource('job-position',jobPositionController::class);
+Route::resource('job-category',JobCategoryController::class);
+Route::resource('company', companyController::class);
+Route::resource('job', JobController::class);
+Route::resource('jobStage', JobStageController::class);
+Route::resource('jobApplication', JobApplicationController::class);

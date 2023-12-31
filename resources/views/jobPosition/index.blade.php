@@ -11,9 +11,13 @@
         <td>{{ $job_position->description }}</td>
         <td>
 
-            <a href="">view</a>
-            <a href="">delete</a>
-            <a href="">edit</a>
+            <a href="{{ route('job-position.show', $job_position->id) }}">view</a>
+            <a href="{{ route('job-position.edit', $job_position->id) }}">edit</a>
+            <form action="{{ route('job-position.destroy', $job_position->id) }}" method="POST">
+                @method('DELETE')
+                @csrf
+                <button type="submit"> delete</button>
+            </form>
 
         </td>
     </tr>

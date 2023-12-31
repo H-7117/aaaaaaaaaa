@@ -15,9 +15,10 @@ class jobPositionController extends Controller
     }
 
     public function create()
-{
-    return view('jobPosition.create');
-}
+    {
+        return view('jobPosition.create');
+    }
+
     public function store(Request $request)
     {
         
@@ -29,9 +30,34 @@ class jobPositionController extends Controller
         return redirect()->route('job-position.index');
     }
 
-    public function show()
+    public function show($id)
     {
-
+        $jobPosition = jobPosition::findOrFail($id);
+        return view('jobPosition.view', compact('jobPosition'));
     }
     
+    public function edit($id)
+    {
+        $jobPosition = jobPosition::findOrFail($id);
+        
+        return view('jobPosition.edit',compact('jobPosition'));
+    }
+    
+    public function update(Request $request,$id){
+        $jobPosition = jobPosition::findOrFail($id);
+        $jobPosition->update(
+            [
+                'name'=>$request->name,
+                'description'=>$request->description
+            ]
+        );
+        return redirect()->route('job-position.index');
+    }
+
+
+    public function destroy($id)
+    {
+        jobPosition::destroy($id);
+        return redirect()->route('job-position.index');
+    }
 }

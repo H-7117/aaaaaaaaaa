@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class company extends Model
+class jobCategory extends Model
 {
     use HasFactory;
-    protected $fillable = ['name','about_company'];
-
+    protected $fillable=['name','description'];
     public function jobs() : HasMany
     {
         return $this->hasMany(job::class);
