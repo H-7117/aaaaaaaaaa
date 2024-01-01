@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\candidateController;
+use App\Http\Controllers\CanditttController;
+use App\Http\Controllers\CommenttsController;
 use App\Http\Controllers\companyController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobCategoryController;
@@ -32,4 +35,6 @@ Route::resource('company', companyController::class);
 Route::resource('job', JobController::class);
 Route::resource('jobStage', JobStageController::class);
 Route::resource('recruiter',recruiterController::class);
+Route::resource('candidate',CanditttController::class);
+Route::resource('comments',CommenttsController::class);
 Route::resource('jobApplication', JobApplicationController::class);
